@@ -36,7 +36,7 @@
                 <h3>Edit Locale</h3>
             </div>
             <div class="col-md-5">
-                <div class="col-md-6">
+                <div class="col-md-9">
                     <h3>Translations (changes save on tab)</h3>
                 </div>
 
