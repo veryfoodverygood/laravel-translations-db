@@ -35,19 +35,16 @@
             <div class="col-md-2 text">
                 <h3>Edit Locale</h3>
             </div>
-            <div class="col-md-5">
-                <div class="col-md-9">
+            <div class="col-md-6">
+                <div class="col-md-8">
                     <h3>Translations (changes save on tab)</h3>
                 </div>
 
-                <div class="col-md-3" style="position: absolute; bottom: 5px; right: 0;">
+                <div class="col-md-4" style="position: absolute; bottom: 5px; right: 0;">
                     <button class="btn btn-info form-control" ng-disabled="isDisabled" ng-click="translateAll()">
                         {{ trans('translation::manager.google') }}
                     </button>
                 </div>                
-            </div>
-            <div class="col-md-1">
-                
             </div>
         </div>
         
@@ -74,7 +71,7 @@
                 <!--<input ng-change="clear()" class="form-control" maxlength="2" type="text" ng-model="currentEditable" placeholder="{{ trans('translation::manager.locale_placeholder') }}" />-->
             </div>
             
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="progress" style="height:34px;">
                     <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: [[ (translateResult.skip / translateResult.total) * 100 ]]%"></div>
                     <div class="progress-bar progress-bar-success progress-bar-striped" style="width: [[ (translateResult.success / translateResult.total) * 100 ]]%"></div>
@@ -83,7 +80,7 @@
                 </div>
             </div>
 
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <button class="btn btn-primary form-control" ng-model="button" ng-click="fetch()">
                     {{ trans('translation::manager.button') }}
                 </button>
