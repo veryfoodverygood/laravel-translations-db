@@ -30,17 +30,17 @@
                 <h3>Category</h3>
             </div>
             <div class="col-md-2 text">
-                <h3>Locale</h3>
+                <h3>View Locale</h3>
             </div>
             <div class="col-md-2 text">
-                <h3>Editing Locale</h3>
+                <h3>Edit Locale</h3>
             </div>
             <div class="col-md-5">
                 <div class="col-md-6">
-                    <h3>Translations</h3>
+                    <h3>Translations (changes save on tab)</h3>
                 </div>
 
-                <div class="col-md-6" style="position: absolute; bottom: 5px; right: 0;">
+                <div class="col-md-3" style="position: absolute; bottom: 5px; right: 0;">
                     <button class="btn btn-info form-control" ng-disabled="isDisabled" ng-click="translateAll()">
                         {{ trans('translation::manager.google') }}
                     </button>
