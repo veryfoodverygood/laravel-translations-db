@@ -76,6 +76,7 @@
                 'translate': $scope.currentEditable
             }).success(function(data) {
                 $scope.items = data;
+                $scope.isDisabled = false;
             })
             .error(function(data, status, headers, config) {
                 $scope.setMessage(status, 'danger');
@@ -103,6 +104,7 @@
         $scope.items = [];
         $scope.message = null;
         $scope.showEmptyOnly = false;
+        $scope.isDisabled = true;
 
         $http.get("{{ URL::route('translations.locales') }}").success(function(data) {
             $scope.locales = data;

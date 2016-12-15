@@ -39,7 +39,9 @@ class TranslationsController extends Controller {
     }
 
     public function postItems(Request $request) {
+        
         if(strlen($request->get('translate')) == 0) throw new TranslationException();
+
 
         $base = \DB::table('translations')
             ->select('name', 'value')
@@ -52,26 +54,30 @@ class TranslationsController extends Controller {
             ->where('locale', strtolower($request->get('translate')))
             ->where('group', $request->get('group'))
             ->orderBy('name');
-        $new = ServiceProvider::pluckOrLists($new, 'value', 'name');
-
+        $new = ServiceProvider::pluckOrLists($new, 'value', 'name');       
+        
         foreach($base as &$item) {
             $translate = null;
+            $hardTranslate = null;
 
-            if(array_key_exists($item->name, $new)) {
-                $translate = $new[$item->name];
+            $newnew = $new->toArray();
+            if(array_key_exists($item->name, $newnew)) {
+                $translate = $newnew[$item->name];
+                $hardTranslate = $newnew[$item->name];
             }
             $item->translation = $translate;
+            $item->hardTranslate = $translate;
         }
-
         return $base;
     }
 
     public function postStore(Request $request) {
+        \Log::info('this is happening ');
         $item = \DB::table('translations')
             ->where('locale', strtolower($request->get('locale')))
             ->where('group', $request->get('group'))
             ->where('name', $request->get('name'))->first();
-
+        
         $data = [
             'locale' => strtolower($request->get('locale')),
             'group' => $request->get('group'),
